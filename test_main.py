@@ -1,11 +1,13 @@
 import unittest
 
+import pytest
+
 from . import main
 
 
 class MainTests(unittest.TestCase):
     def setUp(self):
-        self.bot = main.Bot('Barcelona', 'Madrid', '2018-10-20')
+        self.bot = main.Bot()
 
     def test_locations_bcn(self):
         city_id = self.bot.get_id('Barcelona')
@@ -15,8 +17,9 @@ class MainTests(unittest.TestCase):
         city_id = self.bot.get_id('Madrid')
         self.assertEqual(city_id, '90155')
 
+    @pytest.mark.integration
     def test_response(self):
-        results = self.bot.do()
+        results = self.bot.scrape('Barcelona', 'Madrid', '2018-10-20')
         self.assertEqual(
             results[0],
             {
@@ -26,7 +29,7 @@ class MainTests(unittest.TestCase):
                 'src': 'Barcelona Estación Nord',
                 'type': 'bus',
                 'price': 32.71,
-                'dst_id': '5555',
-                'src_id': '595',
+                'dst_id': 5555,
+                'src_id': 595,
             }
         )

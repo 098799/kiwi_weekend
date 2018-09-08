@@ -1,0 +1,6 @@
+docker run -p 6379:6379 -d redis -name minest_redis
+
+host: 35.198.72.72
+port: 3389
+
+redis-cli -h 35.198.72.72 -p 3389 keys j\*
