@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style type="text/css">
+      .container {
+        max-width: 700px;
+        padding-top: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Alsa search for connection between {{search_for[0]}} and {{search_for[1]}} on {{search_for[2]}}</h1>
+      {% for little_json in json_[:3] %}
+      <h2>Ride number {{loop.index0+1}}</h2>
+      <ul>
+        <li><b>Departure</b>: {{little_json['dep']}}</li>
+        <li><b>Arrival</b>: {{little_json['arr']}}</li>
+        <li><b>Destination</b>: {{little_json['dst']}}</li>
+        <li><b>Source</b>: {{little_json['src']}}</li>
+        <li><b>Type</b>: {{little_json['type']}}</li>
+        <li><b>Price</b>: {{little_json['price']}}</li>
+        <li><b>Destination ID</b>: {{little_json['dst_id']}}</li>
+        <li><b>Source ID</b>: {{little_json['src_id']}}</li>
+      </ul>
+      {% endfor %}
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

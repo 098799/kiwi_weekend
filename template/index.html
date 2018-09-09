@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style type="text/css">
+      .container {
+        max-width: 700px;
+        padding-top: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Choose your destiny</h1>
+      <form action="" method="post">
+        {{ form.csrf }}
+        <div class="row">
+          <div class="col-sm"><b>{{ form.source.label }}</b></div>
+          <div class="col-sm">{{ form.source }}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm"><b>{{ form.destination.label }}</b></div>
+          <div class="col-sm">{{ form.destination }}</div>
+        </div>
+        <div class="row">
+          <div class="col-sm"><b>{{ form.date.label }}</b></div>
+          <div class="col-sm">{{ form.date }}</div>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
